@@ -1,3 +1,4 @@
 # Log
 
-A simple logging tool that outputs to csv
+A simple PHP logging tool that outputs to csv
+

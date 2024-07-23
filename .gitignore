@@ -1,0 +1,4 @@
+vendor
+.phpdoc
+message.txt
+composer.lock
