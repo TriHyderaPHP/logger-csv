@@ -58,7 +58,7 @@ class Log
      * @param string $action The action being logged.
      * @param string $msg The message to be logged.
      */
-    public function out($action, $msg): void
+    public function out($action, $msg)
     {
         $date = date('Y-m-d H:i');
         $name = $this->name;

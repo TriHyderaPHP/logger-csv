@@ -23,9 +23,9 @@ class CsvToJson
     /**
      * Converts CSV data to JSON format
      *
-     * @return mixed The JSON representation of the CSV data
+     * @return array The JSON representation of the CSV data
      */
-    public function convertToJson(): array
+    public function convertToJson()
     {
         $csv = array_map('str_getcsv', file($this->csvFile));
         $headers = $csv[0];
