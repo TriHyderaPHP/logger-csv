@@ -16,14 +16,16 @@
     ],
     "minimum-stability": "stable",
     "repositories": [
-{ "type": "composer", "url": "https://packagist.org" },
-{ "type": "composer", "url": "https://packagist.mcjoe21.com" }
-],
+        {
+            "type": "composer",
+            "url": "https:\/\/packagist.mcjoe21.com"
+        }
+    ],
     "require": {
         "symfony/console": "^7.1",
         "trihydera/file": "^1.2"
     },
     "config": {
-        "preferred-install": "dist"
+        "secure-http": false
     }
 }
