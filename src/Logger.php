@@ -124,12 +124,14 @@ class Logger {
     public function log($level, $message, $context = []) {
         $date = date('Y-m-d H:i');
         $name = $this->name;
-        $logMessage = "$date,$name,$level,$message\n";
+        $interpolatedMessage = $this->interpolate($message, $context);
+
+        $logMessage = "$date,$name,$level,$interpolatedMessage\n";
         file_put_contents($this->logFile . '.csv', $logMessage, FILE_APPEND);
         if ($this->saveJson) {
             $this->converter->convert();
         }
-        $interpolatedMessage = $this->interpolate($message, $context);
+
         $outputMessage = "[$date] [$level] [$name] $interpolatedMessage";
         $this->output->writeln($outputMessage);
     }
@@ -143,6 +145,7 @@ class Logger {
      */
     private function interpolate($message, $context = []) {
         $replace = [];
+
         foreach ($context as $key => $val) {
             $replace['{' . $key . '}'] = $val;
         }
