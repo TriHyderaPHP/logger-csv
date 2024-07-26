@@ -23,7 +23,8 @@
     ],
     "require": {
         "symfony/console": "^7.1",
-        "trihydera/file": "^1.2"
+        "trihydera/file": "^1.2",
+        "psr/log": "^3.0"
     },
     "config": {
         "secure-http": false
