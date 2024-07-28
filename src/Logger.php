@@ -1,13 +1,16 @@
 <?php
+
 namespace Trihydera\Log;
 
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Trihydera\Log\Helpers\ConvertToJson;
 
 /**
+ * Class Logger
  * Represents a simple logging functionality that logs messages to a CSV file.
  */
-class Logger {
+class Logger
+{
     private $name;
     private $logFile;
     private $saveJson;
@@ -21,7 +24,8 @@ class Logger {
      * @param string $path The path to the log file.
      * @param bool $saveJson Whether to save log messages in JSON format.
      */
-    public function __construct($name, $path, $saveJson = false) {
+    public function __construct($name, $path, $saveJson = false)
+    {
         $this->name = $name;
         $this->logFile = $path;
         $this->saveJson = $saveJson;
@@ -40,7 +44,8 @@ class Logger {
      * @param string $message The emergency message.
      * @param array $context An array of context data for message interpolation.
      */
-    public function emergency($message, $context = []) {
+    public function emergency($message, $context = [])
+    {
         $this->log('emergency', $message, $context);
     }
 
@@ -50,7 +55,8 @@ class Logger {
      * @param string $message The alert message.
      * @param array $context An array of context data for message interpolation.
      */
-    public function alert($message, $context = []) {
+    public function alert($message, $context = [])
+    {
         $this->log('alert', $message, $context);
     }
 
@@ -60,7 +66,8 @@ class Logger {
      * @param string $message The critical message.
      * @param array $context An array of context data for message interpolation.
      */
-    public function critical($message, $context = []) {
+    public function critical($message, $context = [])
+    {
         $this->log('critical', $message, $context);
     }
 
@@ -70,7 +77,8 @@ class Logger {
      * @param string $message The error message.
      * @param array $context An array of context data for message interpolation.
      */
-    public function error($message, $context = []) {
+    public function error($message, $context = [])
+    {
         $this->log('error', $message, $context);
     }
 
@@ -80,7 +88,8 @@ class Logger {
      * @param string $message The warning message.
      * @param array $context An array of context data for message interpolation.
      */
-    public function warning($message, $context = []) {
+    public function warning($message, $context = [])
+    {
         $this->log('warning', $message, $context);
     }
 
@@ -90,7 +99,8 @@ class Logger {
      * @param string $message The notice message.
      * @param array $context An array of context data for message interpolation.
      */
-    public function notice($message, $context = []) {
+    public function notice($message, $context = [])
+    {
         $this->log('notice', $message, $context);
     }
 
@@ -100,7 +110,8 @@ class Logger {
      * @param string $message The info message.
      * @param array $context An array of context data for message interpolation.
      */
-    public function info($message, $context = []) {
+    public function info($message, $context = [])
+    {
         $this->log('info', $message, $context);
     }
 
@@ -110,7 +121,8 @@ class Logger {
      * @param string $message The debug message.
      * @param array $context An array of context data for message interpolation.
      */
-    public function debug($message, $context = []) {
+    public function debug($message, $context = [])
+    {
         $this->log('debug', $message, $context);
     }
 
@@ -121,7 +133,8 @@ class Logger {
      * @param string $message The log message.
      * @param array $context An array of context data for message interpolation.
      */
-    public function log($level, $message, $context = []) {
+    public function log($level, $message, $context = [])
+    {
         $date = date('Y-m-d H:i');
         $name = $this->name;
         $interpolatedMessage = $this->interpolate($message, $context);
@@ -143,7 +156,8 @@ class Logger {
      * @param array $context An array of context data for interpolation.
      * @return string The interpolated message.
      */
-    private function interpolate($message, $context = []) {
+    private function interpolate($message, $context = [])
+    {
         $replace = [];
 
         foreach ($context as $key => $val) {

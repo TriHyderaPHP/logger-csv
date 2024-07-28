@@ -1,8 +1,10 @@
 <?php
+
 namespace Trihydera\Log\Helpers;
 
 /**
- * @package Trihydera\Log\Helpers
+ * Class CsvToJson
+ * Helps with turning csv table to JSON format
  */
 class CsvToJson
 {

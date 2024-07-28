@@ -1,4 +1,5 @@
 <?php
+
 namespace Trihydera\Log\Helpers;
 
 use Trihydera\File\JsonFile;
@@ -8,7 +9,8 @@ use Trihydera\Log\Helpers\CsvToJson;
  * Class ConvertToJson
  * Converts CSV data to JSON format and writes the JSON data to a file.
  */
-class ConvertToJson {
+class ConvertToJson
+{
     /**
      * @var CsvToJson The CsvToJson object used for conversion.
      */
@@ -29,7 +31,8 @@ class ConvertToJson {
      *
      * @param string $path The path where the files are located.
      */
-    public function __construct($path) {
+    public function __construct($path)
+    {
         $this->csvtojson = new CsvToJson($path . '.csv');
         $this->jsonfile = new JsonFile();
         $this->path = $path;
@@ -38,9 +41,9 @@ class ConvertToJson {
     /**
      * Converts CSV data to JSON format and writes the JSON data to a file.
      */
-    public function convert() {
+    public function convert()
+    {
         $jsonData = $this->csvtojson->convertToJson();
         $this->jsonfile->write($this->path . '.json', $jsonData);
     }
 }
-?>
