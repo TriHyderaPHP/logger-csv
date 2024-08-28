@@ -1,5 +1,5 @@
 {
-    "name": "trihydera/log",
+    "name": "trihydera/logger-csv",
     "description": "A simple logging tool that outputs to csv",
     "type": "library",
     "license": "GPL-2.0-only",
